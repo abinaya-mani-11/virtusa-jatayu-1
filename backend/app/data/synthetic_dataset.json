@@ -1,0 +1,98 @@
+[
+  {
+    "id": "scenario-1-anaphylaxis",
+    "title": "Severe Anaphylaxis with NRB & Epinephrine",
+    "category": "Allergic Reaction / Respiratory",
+    "text": "At 14:32, patient was conscious but experiencing difficulty breathing. Administered oxygen at 10 liters per minute through a non-rebreather mask. At 14:36, administered 0.3 milligrams of epinephrine intramuscularly. Patient's breathing improved at 14:40.",
+    "expected_events": 3,
+    "highlight": "Standard multi-event ALS workflow with oxygen and epinephrine"
+  },
+  {
+    "id": "scenario-2-opioid-reversal",
+    "title": "Unresponsive Opioid Overdose",
+    "category": "Toxicology / Resuscitation",
+    "text": "At 03:12, dispatched to unresponsive adult. Found cyanotic with shallow respirations. At 03:15, administered 2 mg of naloxone intranasally. At 03:18, patient regained spontaneous breathing and consciousness.",
+    "expected_events": 3,
+    "highlight": "Intranasal route (IN), Narcotic antagonist reversal"
+  },
+  {
+    "id": "scenario-3-acs-prior-arrival",
+    "title": "Acute Chest Pain with Prior Aspirin",
+    "category": "Cardiac / ACS",
+    "text": "At 19:45, arrived on scene for 58yo male experiencing substernal chest pressure. Patient had received aspirin before our arrival from family. We performed a 12-lead ECG at 19:48 showing ST elevation. Administered 0.4 mg nitroglycerin sublingually at 19:50.",
+    "expected_events": 3,
+    "highlight": "Prior administration detection + 12-lead procedure + SL route"
+  },
+  {
+    "id": "scenario-4-planned-not-given",
+    "title": "Severe Trauma with Withheld Morphine",
+    "category": "Trauma / Pain Management",
+    "text": "At 11:20, patient presented with compound fracture of right tibia. We prepared morphine but did not administer it due to sudden drop in systolic blood pressure below 85. Applied extremity splinting at 11:25.",
+    "expected_events": 2,
+    "highlight": "Planned/prepared status handling + procedure"
+  },
+  {
+    "id": "scenario-5-patient-refusal",
+    "title": "Angina with Patient Refusal",
+    "category": "Cardiac / Consent",
+    "text": "At 16:05, evaluated 62yo female with radiating arm pain. Offered nitroglycerin, but patient refused nitroglycerin due to severe headache history. Administered oxygen at 4 liters per minute via nasal cannula at 16:08.",
+    "expected_events": 2,
+    "highlight": "Refusal status categorization"
+  },
+  {
+    "id": "scenario-6-dosage-correction",
+    "title": "Cardiac Arrest with On-Scene Dosage Correction",
+    "category": "Resuscitation / Errata",
+    "text": "At 08:15, initiated CPR and bag-valve-mask ventilation. At 08:18, pushed 1 mg epinephrine IV. Correction: the dose was 0.03 mg, not 0.3 mg.",
+    "expected_events": 4,
+    "highlight": "In-line errata linking and superseded event flagging"
+  },
+  {
+    "id": "scenario-7-missing-dose-adversarial",
+    "title": "Unrecorded Medication Dose",
+    "category": "Adversarial / Clinical Safety",
+    "text": "At 13:00, patient agitated. Administered midazolam intravenously; exact dose was not recorded on scene. Patient settled at 13:08.",
+    "expected_events": 1,
+    "highlight": "Missing dosage warning without fabricating a value"
+  },
+  {
+    "id": "scenario-8-unnamed-medication-adversarial",
+    "title": "Missing Drug Name with Dose Recorded",
+    "category": "Adversarial / Clinical Safety",
+    "text": "At 21:10, administered 5 mg; medication name not recorded. Patient vitals stable.",
+    "expected_events": 1,
+    "highlight": "Unknown medication entity flagged for urgent review"
+  },
+  {
+    "id": "scenario-9-hypoglycemia",
+    "title": "Diabetic Emergency with Dextrose",
+    "category": "Endocrine / Altered Mental Status",
+    "text": "At 07:45, blood glucose measured at 34 mg/dL. Established peripheral IV access. Administered 25 grams of dextrose intravenously at 07:50. Patient alert and oriented at 07:58.",
+    "expected_events": 2,
+    "highlight": "IV access procedure + Gram units + Dextrose"
+  },
+  {
+    "id": "scenario-10-asthma-bronchospasm",
+    "title": "Severe Asthma with Duoneb Inhalation",
+    "category": "Respiratory",
+    "text": "At 15:20, severe wheezing and retraction noted. Administered albuterol 2.5 mg via nebulizer at 15:22. Continued oxygen at 6 L/min.",
+    "expected_events": 2,
+    "highlight": "Inhalation route + Bronchodilator"
+  },
+  {
+    "id": "scenario-11-negation-explicit",
+    "title": "Explicit Contraindication Negation",
+    "category": "Safety / Negation",
+    "text": "At 22:30, severe abdominal pain. Do not administer morphine due to suspected biliary colic. Placed patient on monitor.",
+    "expected_events": 1,
+    "highlight": "Explicit 'do not administer' prohibition"
+  },
+  {
+    "id": "scenario-12-spoken-numbers",
+    "title": "Spoken Numbers and Military Time",
+    "category": "Speech Transcription",
+    "text": "At 1436 hours, gave point three milligrams epinephrine intramuscularly. At 1440 hours, gave two hundred and fifty milliliters saline IV.",
+    "expected_events": 2,
+    "highlight": "Spoken numbers ('point three', 'two hundred and fifty') + military time"
+  }
+]
