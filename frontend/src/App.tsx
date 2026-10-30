@@ -16,6 +16,25 @@ export const App: React.FC = () => {
   const [captureInitialText, setCaptureInitialText] = useState<string>("");
   const [loadingRecord, setLoadingRecord] = useState(false);
 
+  // Theme state: default to "light" mode as requested by user
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    const saved = localStorage.getItem("theme");
+    return saved === "dark" ? "dark" : "light";
+  });
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleToggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
   useEffect(() => {
     // Register Service Worker for true offline asset caching
     if ("serviceWorker" in navigator) {
@@ -86,18 +105,20 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-100/70 text-slate-900 dark:bg-slate-950 dark:text-slate-100 flex flex-col font-sans transition-colors duration-150">
       <Navbar
         currentView={currentView}
         onNavigate={handleNavigate}
         onNewNote={handleNewNote}
+        theme={theme}
+        onToggleTheme={handleToggleTheme}
       />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         {loadingRecord ? (
           <div className="py-24 text-center space-y-3">
-            <div className="w-10 h-10 border-4 border-sky-500 border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="text-xs text-slate-400 font-mono">Processing clinical extraction & hash chaining...</p>
+            <div className="w-10 h-10 border-4 border-sky-600 dark:border-sky-500 border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">Processing clinical extraction & hash chaining...</p>
           </div>
         ) : (
           <>
@@ -147,10 +168,10 @@ export const App: React.FC = () => {
       </main>
 
       {/* Emergency Operations Footer */}
-      <footer className="bg-slate-900 border-t border-slate-800/80 py-4 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+      <footer className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800/80 py-4 mt-auto transition-colors duration-150">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500 dark:text-slate-400">
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-slate-400 font-mono">FIELD-TO-RECORD</span>
+            <span className="font-semibold text-slate-700 dark:text-slate-300 font-mono">FIELD-TO-RECORD</span>
             <span>&bull;</span>
             <span>Hackathon-Ready Clinical Note Extraction & Audit System</span>
           </div>

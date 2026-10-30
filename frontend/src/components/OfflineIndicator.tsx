@@ -37,20 +37,20 @@ export const OfflineIndicator: React.FC = () => {
   return (
     <div className="flex items-center gap-2">
       {isFullyLocal ? (
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-950/80 border border-amber-500/50 text-amber-300">
-          <WifiOff className="w-3.5 h-3.5 animate-pulse" />
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100 border border-amber-300 text-amber-900 dark:bg-amber-950/80 dark:border-amber-500/50 dark:text-amber-300">
+          <WifiOff className="w-3.5 h-3.5 animate-pulse text-amber-600 dark:text-amber-400" />
           <span>Offline Edge Mode</span>
         </div>
       ) : (
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-950/60 border border-emerald-500/40 text-emerald-300">
-          <Wifi className="w-3.5 h-3.5" />
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 border border-emerald-300 text-emerald-900 dark:bg-emerald-950/60 dark:border-emerald-500/40 dark:text-emerald-300">
+          <Wifi className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
           <span>Local Backend Ready</span>
         </div>
       )}
 
       {pendingCount > 0 && (
-        <div className="flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-sky-950/70 border border-sky-500/40 text-sky-300">
-          <Database className="w-3 h-3" />
+        <div className="flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-sky-100 border border-sky-300 text-sky-900 dark:bg-sky-950/70 dark:border-sky-500/40 dark:text-sky-300">
+          <Database className="w-3 h-3 text-sky-600 dark:text-sky-400" />
           <span>{pendingCount} Queued</span>
         </div>
       )}
